@@ -4,3 +4,6 @@ Debug
 *.filters
 *.user
 .vs
+*.txt
+*.xlsx
+*.py

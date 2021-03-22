@@ -2,7 +2,7 @@
 #include <fstream>
 #include <omp.h>
 #include <string>
-//#include <ctime>
+#include <ctime>
 
 using namespace std;
 
@@ -139,7 +139,7 @@ int readMatrixFromFile(string fileName, float**& matrix) {
     
     file >> matrixSize;
 
-    //try {
+    try {
         matrix = new float* [matrixSize];
         for (int i = 0; i < matrixSize; i++) {
             matrix[i] = new float[matrixSize];
@@ -147,11 +147,11 @@ int readMatrixFromFile(string fileName, float**& matrix) {
                 file >> matrix[i][j];
             }
         }
-    //}
-    //catch (bad_alloc& ba) {
-    //    cerr << "Error. Bad Alloc " << ba.what() << "\n";
-    //    return 1;
-    //}
+    }
+    catch (bad_alloc& ba) {
+        cerr << "Error. Bad Alloc " << ba.what() << "\n";
+        return 1;
+    }
     return 0;
 }
 
